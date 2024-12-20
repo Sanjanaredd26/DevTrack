@@ -53,6 +53,9 @@ jobs:
         run: |
           source venv/bin/activate
           export FLASK_APP=backend/app.py
+          if [ ! -d "backend/migrations" ]; then
+            flask db init
+          fi
           flask db upgrade
 
       - name: Run Tests
