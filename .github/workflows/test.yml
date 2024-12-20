@@ -46,6 +46,7 @@ jobs:
 
       - name: Configure Environment Variables
         run: |
+          echo "PYTHONPATH=backend" >> $GITHUB_ENV
           echo "SECRET_KEY=mysecret" >> backend/.env
           echo "JWT_SECRET_KEY=myjwtsecret" >> backend/.env
           echo "SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://postgres:postgres@localhost:5432/test_db" >> backend/.env
