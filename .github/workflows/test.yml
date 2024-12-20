@@ -49,18 +49,7 @@ jobs:
           echo "JWT_SECRET_KEY=myjwtsecret" >> backend/.env
           echo "SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://postgres:postgres@localhost:5432/test_db" >> backend/.env
 
-      - name: Initialize Database Migrations
-        run: |
-          source venv/bin/activate
-          cd backend
-          flask db init || echo "Migrations folder already exists"
-
-      - name: Generate and Apply Database Migrations
-        run: |
-          source venv/bin/activate
-          cd backend
-          flask db migrate -m "Initial migration"
-          flask db upgrade
+   
 
       - name: Run Tests
         run: |
