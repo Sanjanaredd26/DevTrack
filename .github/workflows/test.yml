@@ -42,6 +42,7 @@ jobs:
           source venv/bin/activate
           pip install --upgrade pip
           pip install -r backend/requirements.txt
+          pip install pytest
 
       - name: Configure Environment Variables
         run: |
@@ -54,5 +55,6 @@ jobs:
       - name: Run Tests
         run: |
           source venv/bin/activate
-          pytest --maxfail=5 --disable-warnings
+          cd backend
+          pytest 
 
