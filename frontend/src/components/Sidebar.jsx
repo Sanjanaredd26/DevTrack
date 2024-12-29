@@ -1,9 +1,19 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
-
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { signOut } from "../store/store";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(signOut());
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
     return (
       <div className="sidebar">
         <h2>📋 Task Manager</h2>
@@ -33,6 +43,22 @@ const Sidebar = () => {
                 📊 Task Stats
               </NavLink>
             </li>
+            <li>
+            <span
+              onClick={handleLogout}
+              className="logout-link"
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") handleLogout();
+              }}
+            >
+              🚪 Logout
+            </span>
+            </li>
+
+
+
           </ul>
         </nav>
       </div>

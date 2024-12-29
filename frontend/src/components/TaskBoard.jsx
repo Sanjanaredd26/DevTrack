@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { fetchTasks, deleteTask, updateTask } from "../services/api";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchTasks as fetchTasksApi, deleteTask as deleteTaskApi, updateTask as updateTaskApi } from "../services/api";
 import TaskCard from "./TaskCard";
 import UpdateTaskForm from "./UpdateTaskForm";
+import { setTasks, deleteTask, updateTask } from "../store/store";
 
 
 const TaskBoard = () => {
-    const [tasks, setTasks] = useState([]);
+    const tasks = useSelector((state) => state.tasks);
+    const dispatch = useDispatch();
     const [statusFilter, setStatusFilter] = useState("All");
     const [taskToEdit, setTaskToEdit] = useState(null); // State for the task to be edited
   
     const loadTasks = async () => {
       try {
-        const { data } = await fetchTasks();
-        setTasks(data.data);
+        const { data } = await fetchTasksApi();
+        dispatch(setTasks(data.data));
       } catch (err) {
         console.error("Error fetching tasks:", err);
       }
@@ -21,49 +24,63 @@ const TaskBoard = () => {
     useEffect(() => {
       loadTasks();
     }, []);
-  
+    
     const handleDeleteTask = async (taskId) => {
-      await deleteTask(taskId);
-      loadTasks();
+      try {
+        await deleteTaskApi(taskId);
+        dispatch(deleteTask(taskId));
+      } catch (err) {
+        console.error("Failed to delete task:", err);
+      }
     };
   
     const handleUpdateStatus = async (taskId, currentStatus) => {
-      const newStatus =
-        currentStatus === "Pending" || currentStatus === "In Progress"
-          ? "Completed"
-          : currentStatus;
-        
-      const updatedAt = newStatus === "Completed" ? new Date().toISOString() : null;
+      try {
+        const newStatus = currentStatus === "Pending" || currentStatus === "In Progress" ? "Completed" : currentStatus;
+        const updatedAt = newStatus === "Completed" ? new Date().toISOString() : null;
+        const updatedData = { status: newStatus, completedAt: updatedAt };
   
-      await updateTask(taskId, { status: newStatus });
-      loadTasks();
-    };
-  
-    const handleUpdateTask = async (taskId, updatedData) => {
-      await updateTask(taskId, updatedData);
-      setTaskToEdit(null); // Close update form
-      loadTasks();
+        await updateTaskApi(taskId, updatedData);
+        dispatch(updateTask({ id: taskId, ...updatedData }));
+      } catch (err) {
+        console.error("Failed to update task:", err);
+      }
     };
   
     const handleEditTask = (task) => {
-      setTaskToEdit(task); // Set the task to be edited
+      setTaskToEdit(task);
+    };
+  
+    const handleUpdateTask = async (taskId, updatedData) => {
+      try {
+        await updateTaskApi(taskId, updatedData);
+        dispatch(updateTask({ id: taskId, ...updatedData }));
+        setTaskToEdit(null);
+      } catch (err) {
+        console.error("Failed to update task:", err);
+      }
     };
   
     const handleCancelEdit = () => {
-      setTaskToEdit(null); // Close the update form
+      setTaskToEdit(null);
     };
   
     const groupTasksByStatus = (tasksToGroup) => {
-        const grouped = {
-          Completed: [],
-          "In Progress": [],
-          Pending: [],
-        };
-        tasksToGroup.forEach((task) => {
-          grouped[task.status].push(task);
-        });
-        return grouped;
+      const grouped = {
+        Completed: [],
+        "In Progress": [],
+        Pending: [],
       };
+    
+      tasksToGroup.forEach((task) => {
+        if (!grouped[task.status]) {
+          grouped[task.status] = []; // Initialize the array if the status key doesn't exist
+        }
+        grouped[task.status].push(task);
+      });
+    
+      return grouped;
+    };
 
     // Filter tasks based on status
     const filteredTasks =

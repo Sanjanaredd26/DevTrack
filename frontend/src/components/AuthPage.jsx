@@ -1,17 +1,22 @@
 import React, { useState } from "react";
-import { signIn, signUp } from "../services/api";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import { signIn as reduxSignIn } from "../store/store"
+import { signIn, signUp } from "../services/api";
 const AuthPage = () => {
-  const [isSignUp, setIsSignUp] = useState(false); // Toggle state
+  const [isSignUp, setIsSignUp] = useState(false); 
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
 
   const toggleAuthMode = () => {
     setIsSignUp((prev) => !prev);
-    setFormData({ name: "", email: "", password: "" }); // Reset form
-    setError(null); // Clear error
+    setFormData({ name: "", email: "", password: "" }); 
+    setError(null); 
+    setSuccess(null);
   };
 
   const handleChange = (e) => {
@@ -23,9 +28,11 @@ const AuthPage = () => {
     try {
       if (isSignUp) {
         await signUp({ name: formData.name, email: formData.email, password: formData.password });
+        setSuccess("Account created successfully! Please sign in.");
         toggleAuthMode(); // Switch to SignIn after successful SignUp
       } else {
         const { data } = await signIn({ email: formData.email, password: formData.password });
+        setSuccess("Sign-in successful!!");
         localStorage.setItem("token", data["access token"]);
         navigate("/dashboard");
       }
@@ -36,9 +43,12 @@ const AuthPage = () => {
 
   return (
     <div className="auth-container">
-      <h1>{isSignUp ? "Create Account" : "Welcome To DevTrack App"}</h1>
+      <h1>{isSignUp ? "Create an Account !!" : "Welcome To DevTrack App !!"}</h1>
       <p>{isSignUp ? "Join Today to organize your tasks" : "Sign in to manage your tasks"}</p>
 
+
+      {/* Display success or error messages */}
+      {success && <p className="success">{success}</p>}
       {error && <p className="error">{error}</p>}
 
       <form onSubmit={handleSubmit}>

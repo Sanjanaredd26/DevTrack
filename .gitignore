@@ -1,0 +1,30 @@
+*.log
+*.pyc
+/node_modules/
+backend/venv
+backend/.env
+backend/__pycache__
+
+# Ignore Python cache directories
+__pycache__/
+*.pyc
+*.pyo*.log
+*.pyc
+/node_modules/
+backend/venv
+backend/.env
+backend/__pycache__
+
+# Ignore Python cache directories
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.DS_Store
+Thumbs.db
+ehthumbs.db
+*.bak
+*.tmp
+*.swp
+*.swo
+.env

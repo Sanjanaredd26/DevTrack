@@ -1,16 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const UpdateTaskForm = ({ task, onUpdate, onCancel }) => {
   const [formData, setFormData] = useState({
-    title: task.title,
-    description: task.description,
+    title: "",
+    description: "",
     status: task.status,
   });
 
+  useEffect(() => {
+    if (task) {
+      setFormData({
+        title: task.title || "",
+        description: task.description || "",
+        status: task.status || "Pending",
+      });
+    }
+  }, [task]);
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();

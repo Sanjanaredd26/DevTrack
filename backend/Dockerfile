@@ -1,6 +1,20 @@
+# Use an official Python runtime as a parent image
 FROM python:3.10
-COPY . /app
+
+# Set the working directory in the container
 WORKDIR /app
-RUN pip install -r requirement.txt
+
+# Copy the requirements file and install dependencies
+COPY requirements.txt .
+
+# Install dependencies
+RUN pip install -r requirements.txt
+
+# Copy the rest of the application code
+COPY . .
+
+# Expose the port Flask runs on
 EXPOSE 5000
-CMD ["python","app.py"]
+
+# Command to run the application
+CMD ["flask", "run", "--host=0.0.0.0"]
