@@ -1,7 +1,5 @@
 # DevTrack
 
-# DevTrack
-
 **DevTrack** is a full-stack application that helps developers track their daily tasks, measure productivity, and monitor task progress.
 
 ## **Project Features**
@@ -17,28 +15,28 @@
 
 ## **Tech Stack**
 ### Backend:
-- Python Flask (or FastAPI).
-- SQLite or PostgreSQL database.
-- RESTful API.
+- Python Flask
+- SQLite or PostgreSQL database
 
 ### Frontend:
-- React (with Redux or Context for state management).
-- Axios for API communication.
-- Chart.js or D3.js for visualizations.
+- React with Redux
+- Axios for API communication
+- Chart.js for visualizations
 
 ### Deployment:
-- Docker for containerization.
-- Nginx as a reverse proxy.
-- Systemd for service management on the Linux server.
+- Docker for containerization
+- Nginx as a reverse proxy
+- Systemd for service management on the Linux server
 
 ### Testing:
-- **Backend**: pytest for testing the API endpoints.
-- **Frontend**: Jest and React Testing Library for unit and integration tests.
+- **Backend**: pytest for testing the API endpoints
+- **Frontend**: Jest and React Testing Library to test React components
 
 ### CI/CD:
-- GitHub Actions for automated builds, tests, and deployments.
+- GitHub Actions to run these tests automatically on push events
 
 
+#API Documentation
 
 For complete API documentation, [click here](https://documenter.getpostman.com/view/25930901/2sAYJ6CKbE)
 
