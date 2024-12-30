@@ -36,7 +36,7 @@
 - GitHub Actions to run these tests automatically on push events
 
 
-# API Documentation
+## API Documentation
 
 complete API documentation for the flask backend, [click here](https://documenter.getpostman.com/view/25930901/2sAYJ6CKbE)
 
