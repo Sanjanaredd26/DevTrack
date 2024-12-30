@@ -8,9 +8,7 @@ from app.models.task import Task
 @taskBp.route('', strict_slashes=False)
 @jwt_required(locations=["headers"])
 def get_tasks():
-    """
-    Retrieve all tasks for the current authenticated user.
-    """
+   
     current_user = get_jwt_identity()
     tasks = db.session.query(Task).filter(Task.user_id == current_user).all()
     result = [task.serialize() for task in tasks]
@@ -25,9 +23,7 @@ def get_tasks():
 @taskBp.route('', methods=['POST'], strict_slashes=False)
 @jwt_required(locations=["headers"])
 def create_task():
-    """
-    Create a new task for the current authenticated user.
-    """
+ 
     data = request.get_json()
 
     title = data.get("title")
@@ -60,9 +56,7 @@ def create_task():
 @taskBp.route('/<task_id>', methods=["PUT"], strict_slashes=False)
 @jwt_required(locations=["headers"])
 def update_task(task_id):
-    """
-    Update an existing task for the current authenticated user.
-    """
+   
     data = request.get_json()
     current_user = get_jwt_identity()
 
@@ -100,9 +94,7 @@ def update_task(task_id):
 @taskBp.route('/<task_id>', methods=["DELETE"], strict_slashes=False)
 @jwt_required(locations=["headers"])
 def delete_task(task_id):
-    """
-    Delete an existing task for the current authenticated user.
-    """
+    
     current_user = get_jwt_identity()
     task = Task.query.filter_by(id=task_id).first()
 
@@ -111,8 +103,6 @@ def delete_task(task_id):
             "success": False,
             "message": f'There is no task with id {task_id}'
         }), 404
-
-  
 
     db.session.delete(task)
     db.session.commit()

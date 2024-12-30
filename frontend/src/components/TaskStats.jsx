@@ -48,16 +48,16 @@ const TaskStats = ({ dynamicData }) => {
       legend: {
         labels: {
           font: {
-            size: 18, // Increase legend font size
+            size: 18, 
           },
         },
       },
       tooltip: {
         bodyFont: {
-          size: 16, // Tooltip body font size
+          size: 16, 
         },
         titleFont: {
-          size: 18, // Tooltip title font size
+          size: 18, 
         },
       },
     },
@@ -68,12 +68,12 @@ const TaskStats = ({ dynamicData }) => {
           display: true,
           text: "Number of Tasks",
           font: {
-            size: 18, // Increase Y-axis title font size
+            size: 18, 
           },
         },
         ticks: {
           font: {
-            size: 16, // Increase Y-axis labels font size
+            size: 16, 
           },
         },
       },
@@ -82,12 +82,12 @@ const TaskStats = ({ dynamicData }) => {
           display: true,
           text: "Day of the Week",
           font: {
-            size: 18, // Increase X-axis title font size
+            size: 18, 
           },
         },
         ticks: {
           font: {
-            size: 16, // Increase X-axis labels font size
+            size: 16, 
           },
         },
       },
@@ -97,8 +97,8 @@ const TaskStats = ({ dynamicData }) => {
   return (
     <div
       style={{
-        width: "60%", // Increased width
-        height: "950px", // Adjusted height
+        width: "60%", 
+        height: "950px", 
         marginLeft: "400px",
       }}
     >

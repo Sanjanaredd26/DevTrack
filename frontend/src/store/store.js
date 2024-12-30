@@ -1,6 +1,5 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-// Auth Slice
 const authSlice = createSlice({
   name: "auth",
   initialState: {
@@ -21,7 +20,6 @@ const authSlice = createSlice({
 
 export const { signIn, signOut } = authSlice.actions;
 
-// Tasks Slice
 const taskSlice = createSlice({
   name: "tasks",
   initialState: [],
@@ -45,7 +43,6 @@ const taskSlice = createSlice({
 
 export const { setTasks, addTask, updateTask, deleteTask } = taskSlice.actions;
 
-// Store Configuration
 const store = configureStore({
   reducer: {
     auth: authSlice.reducer,

@@ -56,9 +56,6 @@ const Sidebar = () => {
               🚪 Logout
             </span>
             </li>
-
-
-
           </ul>
         </nav>
       </div>

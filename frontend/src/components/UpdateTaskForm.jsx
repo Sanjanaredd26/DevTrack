@@ -21,7 +21,6 @@ const UpdateTaskForm = ({ task, onUpdate, onCancel }) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
   
-
   const handleSubmit = (e) => {
     e.preventDefault();
     onUpdate(task.id, formData);

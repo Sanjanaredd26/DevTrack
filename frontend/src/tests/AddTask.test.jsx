@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
-import AddTask from '../components/AddTask'; // Adjust the import path as needed
+import AddTask from '../components/AddTask'; 
 
 const mockStore = configureStore([]);
 
@@ -31,6 +31,5 @@ describe('AddTask Component', () => {
       </Provider>
     );
 
-    // Add form submission logic and assertions
   });
 });

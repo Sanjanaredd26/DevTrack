@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signIn as reduxSignIn } from "../store/store"
 import { signIn, signUp } from "../services/api";
+
 const AuthPage = () => {
   const [isSignUp, setIsSignUp] = useState(false); 
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
@@ -10,7 +11,6 @@ const AuthPage = () => {
   const [success, setSuccess] = useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
 
   const toggleAuthMode = () => {
     setIsSignUp((prev) => !prev);
@@ -29,7 +29,7 @@ const AuthPage = () => {
       if (isSignUp) {
         await signUp({ name: formData.name, email: formData.email, password: formData.password });
         setSuccess("Account created successfully! Please sign in.");
-        toggleAuthMode(); // Switch to SignIn after successful SignUp
+        toggleAuthMode();
       } else {
         const { data } = await signIn({ email: formData.email, password: formData.password });
         setSuccess("Sign-in successful!!");
@@ -45,7 +45,6 @@ const AuthPage = () => {
     <div className="auth-container">
       <h1>{isSignUp ? "Create an Account !!" : "Welcome To DevTrack App !!"}</h1>
       <p>{isSignUp ? "Join Today to organize your tasks" : "Sign in to manage your tasks"}</p>
-
 
       {/* Display success or error messages */}
       {success && <p className="success">{success}</p>}

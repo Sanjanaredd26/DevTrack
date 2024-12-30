@@ -1,11 +1,13 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api", // Backend Flask API URL
+  baseURL: "api", 
 });
 
 export const signIn = (data) => api.post("/auth/login", data);
+
 export const signUp = (data) => api.post("/auth/register", data);
+
 export const fetchTasks = async () => {
   const token = localStorage.getItem("token");
   return api.get("/tasks", {

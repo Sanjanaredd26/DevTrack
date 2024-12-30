@@ -5,12 +5,11 @@ import TaskCard from "./TaskCard";
 import UpdateTaskForm from "./UpdateTaskForm";
 import { setTasks, deleteTask, updateTask } from "../store/store";
 
-
 const TaskBoard = () => {
     const tasks = useSelector((state) => state.tasks);
     const dispatch = useDispatch();
     const [statusFilter, setStatusFilter] = useState("All");
-    const [taskToEdit, setTaskToEdit] = useState(null); // State for the task to be edited
+    const [taskToEdit, setTaskToEdit] = useState(null); 
   
     const loadTasks = async () => {
       try {
@@ -74,7 +73,7 @@ const TaskBoard = () => {
     
       tasksToGroup.forEach((task) => {
         if (!grouped[task.status]) {
-          grouped[task.status] = []; // Initialize the array if the status key doesn't exist
+          grouped[task.status] = []; 
         }
         grouped[task.status].push(task);
       });
@@ -82,7 +81,6 @@ const TaskBoard = () => {
       return grouped;
     };
 
-    // Filter tasks based on status
     const filteredTasks =
       statusFilter === "All"
         ? tasks
@@ -94,7 +92,6 @@ const TaskBoard = () => {
     const completedTasks = tasks.filter((task) => task.status === "Completed").length;
     const pendingTasks = tasks.filter((task) => task.status === "Pending").length;
     const inProgressTasks = tasks.filter((task) => task.status === "In Progress").length;
-
   
     return (
       <div className="task-board">
@@ -148,8 +145,6 @@ const TaskBoard = () => {
           </select>
         </div>
 
-
-  
         {/* Grouped Tasks */}
         <div className="task-group-container">
            {Object.keys(groupedTasks).map((status) => {
@@ -171,7 +166,7 @@ const TaskBoard = () => {
                  </div>
                );
             }
-            return null; // Do not render the group if there are no tasks
+            return null; 
           })}
         </div>
 

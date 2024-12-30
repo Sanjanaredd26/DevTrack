@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import UpdateTaskForm from "./UpdateTaskForm";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 
-
 const TaskCard = ({ task, onDelete, onUpdateStatus, onEdit }) => {
   const [showUpdateForm, setShowUpdateForm] = useState(false);
 
@@ -19,7 +18,6 @@ const TaskCard = ({ task, onDelete, onUpdateStatus, onEdit }) => {
     }
   };
 
-
   return (
     <div className="task-card">
       <div className={getStatusClass(task.status)}>
@@ -30,7 +28,6 @@ const TaskCard = ({ task, onDelete, onUpdateStatus, onEdit }) => {
       <div className={`status-badge ${task.status?.toLowerCase().replace(" ", "-") || "unknown"}`}>
         {task.status?.toUpperCase() || "UNKNOWN"}
       </div>
-
 
       <div className="task-actions">
          {/* Update Button */}

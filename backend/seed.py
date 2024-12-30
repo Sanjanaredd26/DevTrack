@@ -4,16 +4,16 @@ from app.models.user import Users
 from app.models.task import Task
 from werkzeug.security import generate_password_hash
 
-# Create the Flask app context
+
 app = create_app()
 
-# Seed the database
+
 with app.app_context():
-    # Drop all tables and recreate them (optional: for a clean slate)
+    
     db.drop_all()
     db.create_all()
 
-    # Seed Users
+
     user1 = Users(
         name="Sanjana Reddy",
         email="SanjanaR@gmail.com",
@@ -28,10 +28,9 @@ with app.app_context():
     db.session.add(user1)
     db.session.add(user2)
 
-    # Commit the users to get their IDs
     db.session.commit()
 
-    # Seed Tasks
+  
     task1 = Task(
         title="Task 1",
         description="This is the first task.",
@@ -55,7 +54,6 @@ with app.app_context():
     db.session.add(task2)
     db.session.add(task3)
 
-    # Commit the tasks
     db.session.commit()
 
     print("Database seeded successfully!")

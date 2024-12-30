@@ -4,12 +4,12 @@ class Task(db.Model):
     __tablename__ = 'tasks'
      
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), nullable=False)  # Task title (required)
-    description = db.Column(db.Text)  # Optional detailed description of the task
-    status = db.Column(db.String(20), default="To Do")  # Status (e.g., To Do, In Progress, Done)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))  # Reference to the user
+    title = db.Column(db.String(100), nullable=False)  
+    description = db.Column(db.Text)  
+    status = db.Column(db.String(20), default="To Do")  
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))  
 
-    user = db.relationship('Users', back_populates='tasks')  # Establish relationship with User
+    user = db.relationship('Users', back_populates='tasks')  
 
     def serialize(self):
         """

@@ -8,7 +8,7 @@ const AddTask = () => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    status: "Pending", // Default status
+    status: "Pending", 
   });
   const [successMessage, setSuccessMessage] = useState(null);
   const dispatch = useDispatch();
@@ -29,7 +29,6 @@ const AddTask = () => {
       console.error("Failed to create task:", err);
     }
   };
-
 
   return (
     <div className="add-task-container">

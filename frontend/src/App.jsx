@@ -7,10 +7,7 @@ import TaskBoard from "./components/TaskBoard";
 import AddTask from "./components/AddTask";
 import TaskStats from "./components/TaskStats";
 
-
-
-
-import "./index.css"; // Import CSS
+import "./index.css"; 
 
 function App() {
   return (
@@ -24,9 +21,8 @@ function App() {
          <Route path="/" element={<Layout />}>
           <Route path="dashboard" element={<TaskBoard />} />
           <Route path="add-task" element={<AddTask />} />
-          <Route path="task-stats" element={<TaskStats />} /> {/* New Route */}
-      
-      
+          <Route path="task-stats" element={<TaskStats />} /> 
+  
         </Route>
       </Routes>
     </Router>
