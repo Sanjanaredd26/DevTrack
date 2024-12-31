@@ -42,7 +42,7 @@ Complete API documentation for the flask backend, [click here](https://documente
 
 ## Demo
 
-![SignUp/SignIn](output/Signup&SignInpage.gif)
+![SignUp/SignIn](https://github.com/Sanjanaredd26/DevTrack/blob/e0827f9528c308908a64566befc42e1671a79057/output/Signup%26SignIn%20page.gif)
 
 
 
