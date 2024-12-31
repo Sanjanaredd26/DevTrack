@@ -40,3 +40,10 @@
 
 Complete API documentation for the flask backend, [click here](https://documenter.getpostman.com/view/25930901/2sAYJ6CKbE)
 
+## Demo
+
+![SignUp/SignIn](output/Signup&SignInpage.gif)
+
+
+
+
