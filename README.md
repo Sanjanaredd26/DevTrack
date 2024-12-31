@@ -53,6 +53,9 @@ Complete API documentation for the flask backend, [click here](https://documente
 
  ![filter tasks](https://github.com/Sanjanaredd26/DevTrack/blob/feccbe5be94fa99bac4c78f2849d3bbdb3faa29e/output/FilterTasks.gif)
 
+**Update Task Form**:
+
+![update tasks](https://github.com/Sanjanaredd26/DevTrack/blob/a8e432200c4122f486a38e09ec34a10495ca3496/output/UpdateTask%20Page.gif)
 
 
 
