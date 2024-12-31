@@ -57,6 +57,12 @@ Complete API documentation for the flask backend, [click here](https://documente
 
 ![update tasks](https://github.com/Sanjanaredd26/DevTrack/blob/a8e432200c4122f486a38e09ec34a10495ca3496/output/UpdateTask%20Page.gif)
 
+**Logout**:
+
+![logout](https://github.com/Sanjanaredd26/DevTrack/blob/be50b98046c6cba5982c2ddb89ba0db8aca731f7/output/Logout.gif)
+
+
+
 
 
 
