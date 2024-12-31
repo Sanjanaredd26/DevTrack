@@ -41,10 +41,12 @@
 Complete API documentation for the flask backend, [click here](https://documenter.getpostman.com/view/25930901/2sAYJ6CKbE)
 
 ## Demo
-**Signup/SignIn page**
+**Signup/SignIn page**:
+
 ![SignUp/SignIn](https://github.com/Sanjanaredd26/DevTrack/blob/e0827f9528c308908a64566befc42e1671a79057/output/Signup%26SignIn%20page.gif)
 
-**Add Tasks Page**
+**Add Tasks Page**:
+
 ![Add Tasks Page](https://github.com/Sanjanaredd26/DevTrack/blob/325312a2662e07c083eafa53f1ff70ab56015d67/output/AddTask%20Page.gif)
 
 
