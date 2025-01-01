@@ -62,6 +62,18 @@ Complete API documentation for the flask backend, [click here](https://documente
 ![logout](https://github.com/Sanjanaredd26/DevTrack/blob/be50b98046c6cba5982c2ddb89ba0db8aca731f7/output/Logout.gif)
 
 
+## How To Run This App
+
+**Run Locally**:
+
+1. Clone the repository:
+
+ ```bash
+   git clone https://github.com/Sanjanaredd26/DevTrack.git
+
+
+
+
 
 
 
