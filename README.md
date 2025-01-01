@@ -69,7 +69,51 @@ Complete API documentation for the flask backend, [click here](https://documente
 1. Clone the repository:
 
  ```bash
+   git clone https://github.com/Sanjanaredd26/DevTrack.git 
+```
+2. Create a .env file and set value for SQLALCHEMY_DATABASE_URI, JWT_SECRET_KEY, POSTGRES_USER, POSTGRES_PASSWORD, and POSTGRES_DB.
+
+3. Make sure you have installed docker desktop and run the following commands:
+
+   Build and start the containers:
+   ``` bash
+     docker-compose up 
+   ```
+
+**Run on Linux Server**:
+
+1. Use a cloud platform like AWS create a Linux instance.
+2. Clone the repository or use scp to copy a files from  local machine to  Linux server:
+```bash
    git clone https://github.com/Sanjanaredd26/DevTrack.git
+```
+or 
+
+```bash
+  scp -r Directory_name user@hostname:destination_file
+```
+3. Create a .env file and set value for SQLALCHEMY_DATABASE_URI, JWT_SECRET_KEY, POSTGRES_USER, POSTGRES_PASSWORD, and POSTGRES_DB.(if necessary)
+
+4. Install Docker and Docker Compose and run the following command to build and start the ontainers:
+```bash
+   docker compose up 
+```
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
 
 
 
