@@ -92,7 +92,7 @@ or
 ```bash
   scp -r Directory_name user@hostname:destination_file
 ```
-3. Create a .env file and set value for SQLALCHEMY_DATABASE_URI, JWT_SECRET_KEY, POSTGRES_USER, POSTGRES_PASSWORD, and POSTGRES_DB.(if necessary)
+3. Create a .env file and set value for SQLALCHEMY_DATABASE_URI, JWT_SECRET_KEY, POSTGRES_USER, POSTGRES_PASSWORD, and POSTGRES_DB.(if you clone the repository)
 
 4. Install Docker and Docker Compose and run the following command to build and start the ontainers:
 ```bash
